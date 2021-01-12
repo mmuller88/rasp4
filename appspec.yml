@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/git/rasp4
+hooks:
+  # BeforeInstall:
+  #   - location: Scripts/UnzipResourceBundle.sh
+  #   - location: Scripts/UnzipDataBundle.sh
+  # AfterInstall:
+  #   - location: Scripts/RunResourceTests.sh
+  #     timeout: 180
+  ApplicationStart:
+    - location: /scripts/startIOT.sh
+      timeout: 3600
+  # ValidateService:
+  #   - location: Scripts/MonitorService.sh
+  #     timeout: 3600
+  #     runas: codedeployuser
