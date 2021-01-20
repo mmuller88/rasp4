@@ -4,9 +4,9 @@ files:
   - source: /
     destination: /home/ubuntu/git/rasp4
 hooks:
-  BeforeInstall:
-    - location: /scripts/clean.sh
-      timeout: 3600
+  # BeforeInstall:
+  #   - location: /scripts/clean.sh
+  #     timeout: 3600
   # AfterInstall:
   #   - location: Scripts/RunResourceTests.sh
   #     timeout: 180
