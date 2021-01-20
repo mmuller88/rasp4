@@ -16,7 +16,7 @@ import { CodeDeployPipelineApp } from './codedeploy-pipeline-app';
 // };
 
 new CodeDeployPipelineApp({
-  branch: 'master',
+  branch: 'main',
   repositoryName: 'rasp4',
   stageProps: {
     account: '981237193288',
