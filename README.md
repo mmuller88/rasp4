@@ -15,6 +15,15 @@ yarn build
 yarn deploy [--profile X]
 ```
 
+# InfluxDB Backup
+
+For the backup you need to put your AWS Credentials into ~/.profile
+
+```
+export AWS_ACCESS_KEY_ID=AKIA6I5SLLxx
+export AWS_SECRET_ACCESS_KEY=7PBRSlGhZoovOxx
+```
+
 # Raspberry 4 Specifics
 
 ...

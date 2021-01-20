@@ -21,7 +21,10 @@ services:
     ports:
       - "8086:8086"
       - "8083:8083"
+      - 8088:8088/tcp
       - "2003:2003"
+    environment:
+      INFLUXDB_BIND_ADDRESS: 0.0.0.0:8088
     env_file:
       - .//services/influxdb/influxdb.env
     volumes:
@@ -30,14 +33,14 @@ services:
 
   influxdbbackup:
     container_name: influxdbbackup
-    image: jacobtomlinson/influxdb-to-s3:latest
+    image: damadden88/influxdb-s3-backup:main
     restart: unless-stopped
     environment:
       - DATABASE=mydb
-      - DATABASE_HOST=host.docker.internal
+      - DATABASE_HOST=influxdb
       - S3_BUCKET=rasp4backup
-      - AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
-      - AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
       - AWS_DEFAULT_REGION=eu-central-1
 
   grafana:
