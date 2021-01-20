@@ -33,7 +33,7 @@ services:
 
   influxdbbackup:
     container_name: influxdbbackup
-    image: damadden88/influxdb-s3-backup:main
+    image: damadden88/influxdb-s3-backup:latest
     restart: unless-stopped
     environment:
       - DATABASE=mydb
