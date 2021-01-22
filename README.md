@@ -77,6 +77,13 @@ sudo rm -rf /var/run/docker.sock
 
 ```
 
+Sometimes the AWS CodeDeploy Agent can't delete the existing files and folders than use :
+
+```
+sudo rm -rf .gitignore .eslintrc.json .github .mergify.yml .npmignore .projen .projenrc.js .secret.example .versionrc.json .vscode
+sudo rm -rf LICENSE README.md appspec.yml docker-compose.yml misc package.json preact-netlify scripts services src test tsconfig.jest.json tsconfig.json version.json yarn.lock
+```
+
 # Thanks To
 
 - gcgarner with https://github.com/gcgarner/IOTstack . It helps me to create my IOT stack for my Raspberry 4

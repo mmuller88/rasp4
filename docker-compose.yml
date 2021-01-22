@@ -27,6 +27,7 @@ services:
       INFLUXDB_BIND_ADDRESS: 0.0.0.0:8088
     env_file:
       - .//services/influxdb/influxdb.env
+      - ./secret.env
     volumes:
       - .//volumes/influxdb/data:/var/lib/influxdb
       - ./backups/influxdb/db:/var/lib/influxdb/backup
