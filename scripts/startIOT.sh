@@ -6,7 +6,7 @@ export STAGE="${DEPLOYMENT_GROUP_NAME:16}"
 
 # load secretes from AWS . If you don't want that you can comment that out and set the secret.env yourself
 rm -rf secret.env
-node scripts/secret-manager-to-env.js
+node /home/ubuntu/git/rasp4/scripts/secret-manager-to-env.js
 
 echo 'start IOT stuff'
 cd /home/ubuntu/git/rasp4
