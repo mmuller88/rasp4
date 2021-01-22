@@ -9,8 +9,8 @@ var AWS = require('aws-sdk'),
 var fs = require('fs');
 var secretEnv = '/home/ubuntu/git/rasp4/secret.env';
 
-// var credentials = new AWS.SharedIniFileCredentials({profile: `default`});
-// AWS.config.credentials = credentials;
+var credentials = new AWS.SharedIniFileCredentials({profile: `default`});
+AWS.config.credentials = credentials;
 
 // Create a Secrets Manager client
 var client = new AWS.SecretsManager({
