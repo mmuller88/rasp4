@@ -24,6 +24,22 @@ export AWS_ACCESS_KEY_ID=AKIA6I5SLLxx
 export AWS_SECRET_ACCESS_KEY=7PBRSlGhZoovOxx
 ```
 
+# Tosmato Specifics
+
+## MQTT
+
+If you want to send MQTT commands to your Tosmator devices install:
+
+```
+sudo apt-get install mosquitto-clients
+mosquitto_sub -t "test"
+```
+
+## additional
+
+Reduce Power usage time from 5m to 10s
+mosquitto_pub -h rasp4.alfpro.net -t "cmnd/tasmota/TelePeriod" -m 10
+
 # Raspberry 4 Specifics
 
 ...

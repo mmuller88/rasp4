@@ -86,6 +86,7 @@ services:
     privileged: true
     environment:
       - TZ=Europe/Amsterdam
+      - homeassistant=true
 
   zigbee2mqttassistant:
     container_name: zigbee2mqttassistant
