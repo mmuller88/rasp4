@@ -7,10 +7,10 @@ export STAGE="${DEPLOYMENT_GROUP_NAME:16}"
 # load secretes from AWS . If you don't want that you can comment that out and set the secret.env yourself
 cd /home/ubuntu/git/rasp4/
 npm install aws-sdk
-rm -rf secret.env
-export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-node scripts/secret-manager-to-env.js
+# rm -rf secret.env
+# export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+# export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+# node scripts/secret-manager-to-env.js
 
 echo 'start IOT stuff'
 cd /home/ubuntu/git/rasp4

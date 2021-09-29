@@ -5,24 +5,24 @@ services:
     container_name: nodered
     build: .//services/nodered/.
     restart: unless-stopped
-    user: "0"
+    user: '0'
     privileged: true
     environment:
-      - NODE_RED_ENABLE_PROJECTS=true 
+      - NODE_RED_ENABLE_PROJECTS=true
     ports:
-      - "1880:1880"
+      - '1880:1880'
     volumes:
       - .//volumes/nodered/data:/data
 
   influxdb:
     container_name: influxdb
-    image: "influxdb:latest"
+    image: 'influxdb:latest'
     restart: unless-stopped
     ports:
-      - "8086:8086"
-      - "8083:8083"
+      - '8086:8086'
+      - '8083:8083'
       - 8088:8088/tcp
-      - "2003:2003"
+      - '2003:2003'
     environment:
       INFLUXDB_BIND_ADDRESS: 0.0.0.0:8088
     env_file:
@@ -41,15 +41,15 @@ services:
       - S3_BUCKET=rasp4backup
       - AWS_DEFAULT_REGION=eu-central-1
     env_file:
-      - ./secret.env
+      - ./../secret.env
 
   grafana:
     container_name: grafana
     image: grafana/grafana
     restart: unless-stopped
-    user: "0"
+    user: '0'
     ports:
-      - "3000:3000"
+      - '3000:3000'
     env_file:
       - .//services/grafana/grafana.env
     environment:
@@ -63,9 +63,9 @@ services:
     container_name: mosquitto
     image: eclipse-mosquitto
     restart: unless-stopped
-    user: "1883"
+    user: '1883'
     ports:
-      - "1883:1883"
+      - '1883:1883'
     volumes:
       - .//volumes/mosquitto/data:/mosquitto/data
       - .//volumes/mosquitto/log:/mosquitto/log
@@ -151,7 +151,6 @@ services:
   #     LETSENCRYPT_HOST: rasp4.martinmueller.dev #${SERVER_HOST}
   #     LETSENCRYPT_EMAIL: damadden88@googlemail.net
 
-
   # nginxproxy:
   #   image: budry/jwilder-nginx-proxy-arm
   #   container_name: nginxproxy
@@ -174,8 +173,7 @@ services:
   #     - vhostd:/etc/nginx/vhost.d
   #     - html:/usr/share/nginx/html
   #     - /var/run/docker.sock:/var/run/docker.sock:ro
-
-# volumes: 
+# volumes:
 #   certs:
 #   html:
 #   vhostd:
