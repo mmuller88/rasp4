@@ -17,11 +17,11 @@ yarn deploy [--profile X]
 
 # InfluxDB Backup
 
-For the backup you need to put your AWS Credentials into ~/.profile
+For the backup you need to put your in ./../.secrets
 
 ```
-export AWS_ACCESS_KEY_ID=AKIA6I5SLLxx
-export AWS_SECRET_ACCESS_KEY=7PBRSlGhZoovOxx
+AWS_ACCESS_KEY_ID=AKIA6I5SLLxx
+AWS_SECRET_ACCESS_KEY=7PBRSlGhZoovOxx
 ```
 
 # Tosmato Specifics
