@@ -1,9 +1,8 @@
-const { AwsCdkTypeScriptApp } = require('projen');
-
-const project = new AwsCdkTypeScriptApp({
-  authorAddress: 'damadden88@googlemail.com',
-  authorName: 'Martin Mueller',
-  cdkVersion: '1.77.0',
+const { awscdk } = require('projen');
+const project = new awscdk.AwsCdkTypeScriptApp({
+  cdkVersion: '1.163.1',
+  defaultReleaseBranch: 'main',
+  name: 'rasp4',
   cdkDependencies: [
     '@aws-cdk/aws-codepipeline',
     '@aws-cdk/aws-codepipeline-actions',
@@ -12,22 +11,10 @@ const project = new AwsCdkTypeScriptApp({
     '@aws-cdk/aws-iam',
     '@aws-cdk/aws-codedeploy',
   ],
-  deps: [
-    '@mobileposse/auto-delete-bucket',
-  ],
-  name: 'rasp4',
-  repository: 'https://github.com/mmuller88/rasp4.git',
-  context: {
-    '@aws-cdk/core:enableStackNameDuplicates': 'true',
-    'aws-cdk:enableDiffNoFail': 'true',
-    '@aws-cdk/core:newStyleStackSynthesis': true,
-  },
+  deps: ['@mobileposse/auto-delete-bucket'],
+  // deps: [],                /* Runtime dependencies of this module. */
+  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
+  // devDeps: [],             /* Build dependencies for this module. */
+  // packageName: undefined,  /* The "name" in package.json. */
 });
-
-project.setScript('cdkDeploy', 'cdk deploy');
-
-const common_exclude = ['volumes'];
-project.npmignore.exclude(...common_exclude);
-project.gitignore.exclude(...common_exclude);
-
 project.synth();
