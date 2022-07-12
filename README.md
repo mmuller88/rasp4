@@ -6,7 +6,7 @@ That is a git repo for remote control my Raspberry 4 via AWS CodeDeploy & AWS CD
 
 I use AWS CDK for the deployment. AWS CDK is an abstraction on top of AWS Cloudformation which uses a higher abstraction language like TypeScript. Under the hood AWS CDK produces Cloudformation templates and applies them. Find out more about AWS CDK on my blog post side <https://martinmueller.dev/tags/cdk>
 
-cdk bootstrap --trust 123456789 --force --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess aws://123456789/eu-central-1 --profile foo88
+cdk bootstrap aws://981237193288/eu-central-1
 
 ## Deploy
 
@@ -72,7 +72,7 @@ CodeDeploy Agent logs are in /var/log/aws/codedeploy-agent/codedeploy-agent.log
 
 - Kill docker with:
 
-```
+```bash
 ps -A | grep docker
 kill -9 1321
 sudo systemctl enable docker
@@ -81,7 +81,7 @@ sudo systemctl start docker
 
 - Uninstall docker:
 
-```
+```bash
 sudo apt-get purge docker-ce
 dpkg -l | grep -i docker
 sudo apt-get purge -y docker-engine docker docker.io docker-ce
@@ -91,7 +91,6 @@ sudo rm -rf /var/lib/docker /etc/docker
 sudo rm /etc/apparmor.d/docker
 sudo groupdel docker
 sudo rm -rf /var/run/docker.sock
-
 ```
 
 Sometimes the AWS CodeDeploy Agent can't delete the existing files and folders than use :
