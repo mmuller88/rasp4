@@ -1,6 +1,6 @@
 # rasp4
 
-That is a git repo for remote control my Raspberry 4 via AWS CodeDeploy & AWS CDK. Basically I only will need to push stuff here and that get installed and executed on my Raspberry 4. Very cool or? Write me for any questions / ideas.
+That is a git repo for remote control my Raspberry 4 via AWS CodeDeploy & AWS CDK. Basically I only will need to push stuff here and that get installed and executed on my Raspberry 4. Very cool or? Write me for any questions/ideas.
 
 ## AWS CDK & Deploy specifics
 
@@ -55,20 +55,17 @@ Install a lot stuff more on it like git, docker, docker-compose, aws cli and so 
 ./misc/init.sh
 ```
 
-As well I disabled systemd-resolve for using port 53 as I want to use [Pi-hole](https://github.com/pi-hole/pi-hole) with that instructions <https://www.linuxuprising.com/2020/07/ubuntu-how-to-free-up-port-53-used-by.html> .
-
-I do use Pi-hole as DNS and DHCP Server
-
-- <https://blog.cryptoaustralia.org.au/instructions-for-setting-up-pi-hole/#:~:text=Click%20on%20the%20settings%20menu,settings%20provided%20should%20be%20ok>.
-- permanently change /etc/resolv.conf on Ubuntu <https://www.tecmint.com/set-permanent-dns-nameservers-in-ubuntu-debian/>
-
 #### SSH Key
 
 <https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04>
 
-#### Troubeshooting
+#### Troubleshooting
 
-CodeDeploy Agent logs are in /var/log/aws/codedeploy-agent/codedeploy-agent.log
+##### CodeDeploy Agent
+
+/var/log/aws/codedeploy-agent/codedeploy-agent.log
+
+##### Docker
 
 - Kill docker with:
 
@@ -93,10 +90,12 @@ sudo groupdel docker
 sudo rm -rf /var/run/docker.sock
 ```
 
+##### Files
+
 Sometimes the AWS CodeDeploy Agent can't delete the existing files and folders than use :
 
 ```bash
-sudo rm -rf .gitignore .eslintrc.json .github .mergify.yml .npmignore .projen .projenrc.js .secret.example .versionrc.json .vscode
+sudo rm -rf .gitignore .eslintrc.json .github .mergify.yml .npmignore .projen .projenrc.js .secret.example .versionrc.json .vscode cdk.json secret.env.example
 sudo rm -rf LICENSE README.md appspec.yml docker-compose.yml misc package.json preact-netlify scripts services src test tsconfig.jest.json tsconfig.json version.json yarn.lock
 ```
 
