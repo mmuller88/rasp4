@@ -1,4 +1,4 @@
-FROM nodered/node-red:2.2.2
+FROM nodered/node-red:3.0.1
 RUN for addonnodes in \
   node-red-node-pi-gpiod \
   node-red-dashboard \
